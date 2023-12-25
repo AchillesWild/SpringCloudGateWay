@@ -1,6 +1,7 @@
 package com.achilles.controller;
 
 import com.achilles.model.response.DataResult;
+import com.achilles.model.response.code.BaseResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,6 @@ public class DefaultHystrixController {
     public DataResult<Object> fallback(){
 
         //log.error("触发熔断......");
-        return DataResult.baseFail();
+        return DataResult.baseFail(BaseResultCode.FAIL.code,"GateWay fallback ***********");
     }
 }
