@@ -11,9 +11,9 @@ spring:
       routes:
         - id: path_route
           # \u6307\u5B9A\u57DF\u540D
-          uri: http://localhost:8080
+          uri: https://blog.csdn.net
           predicates:
-            - Path=/jar/**
+            - Path=/flow
           filters:
             # \u7194\u65AD\u914D\u7F6E
             - name: Hystrix
