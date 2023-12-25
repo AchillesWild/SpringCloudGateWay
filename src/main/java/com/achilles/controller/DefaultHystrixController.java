@@ -11,7 +11,7 @@ public class DefaultHystrixController {
     @RequestMapping("/fallback")
     public DataResult<Object> fallback(){
 
-        log.error("触发熔断......");
+        //log.error("触发熔断......");
         return DataResult.baseFail();
     }
 }

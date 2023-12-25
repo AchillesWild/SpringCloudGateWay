@@ -1,6 +1,6 @@
 package com.achilles.model.response;
 
-import com.achilles.wild.server.model.response.code.BaseResultCode;
+import com.achilles.model.response.code.BaseResultCode;
 
 import java.io.Serializable;
 

@@ -35,7 +35,7 @@ public class MyCookieWebSessionIdResolver extends CookieWebSessionIdResolver {
             byte[] decodedCookieBytes = Base64.getDecoder().decode(base64Value);
             return new String(decodedCookieBytes);
         } catch (Exception ex) {
-            log.debug("Unable to Base64 decode value: " + base64Value);
+            //log.debug("Unable to Base64 decode value: " + base64Value);
             return null;
         }
     }
