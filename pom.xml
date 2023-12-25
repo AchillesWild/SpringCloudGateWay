@@ -57,10 +57,6 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
-        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
@@ -109,10 +105,81 @@
     </dependencyManagement>
 
     <build>
+        <finalName>SpringCloudGateWay</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/lib/</directory>
+                <targetPath>/BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering><!--是否使用参数值代替参数名。参数值取自properties元素或者文件里配置的属性，文件在filters元素里列出。-->
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>false</filtering>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.achilles.GateWayApplication</mainClass>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <wtpapplicationxml>true</wtpapplicationxml>
+                    <wtpversion>2.0</wtpversion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <!--默认打包名为项目名称，生成的WAR存放在target下 -->
+                    <warName>AchillesTest</warName>
+                    <!--<outputDirectory>D:\Path\Java\apache-tomcat-9.0.27\webapps</outputDirectory>-->
+                    <!-- <outputDirectory>D:\Path\Java\apache-tomcat-6.0.32\webapps</outputDirectory> -->
+                    <!-- <outputDirectory>E:\PATH\Java\apache-tomcat-6.0.32\webapps</outputDirectory> -->
+                    <!--修改JSP文件后不能重新编译发布 -->
+                    <!-- <webappDirectory>${basedir}/src/main/webapp</webappDirectory> -->
+                    <!-- <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory> -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArguments>
+                        <extdirs>${project.basedir}/lib/</extdirs>
+                    </compilerArguments>
+                </configuration>
+
             </plugin>
         </plugins>
     </build>
