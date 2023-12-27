@@ -14,13 +14,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.5.RELEASE</version>
+        <version>3.2.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <java.version>17</java.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -32,7 +32,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>1.18.30</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -50,6 +50,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.10.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -159,27 +160,21 @@
                 <version>3.3.1</version>
                 <configuration>
                     <!--默认打包名为项目名称，生成的WAR存放在target下 -->
-                    <warName>AchillesTest</warName>
-                    <!--<outputDirectory>D:\Path\Java\apache-tomcat-9.0.27\webapps</outputDirectory>-->
-                    <!-- <outputDirectory>D:\Path\Java\apache-tomcat-6.0.32\webapps</outputDirectory> -->
-                    <!-- <outputDirectory>E:\PATH\Java\apache-tomcat-6.0.32\webapps</outputDirectory> -->
-                    <!--修改JSP文件后不能重新编译发布 -->
-                    <!-- <webappDirectory>${basedir}/src/main/webapp</webappDirectory> -->
-                    <!-- <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory> -->
+                    <warName>SpringCloudGateway</warName>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.12.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
                     <compilerArguments>
                         <extdirs>${project.basedir}/lib/</extdirs>
                     </compilerArguments>
                 </configuration>
-
             </plugin>
         </plugins>
     </build>

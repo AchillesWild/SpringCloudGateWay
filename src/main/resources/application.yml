@@ -14,23 +14,23 @@ spring:
           uri: http://localhost:8080/
           predicates:
             - Path=/flow/**
-          filters:
-            # \u7194\u65AD\u914D\u7F6E
-            - name: Hystrix
-              args:
-                name: default
-                fallbackUri: forward:/fallback
+#          filters:
+#            # \u7194\u65AD\u914D\u7F6E
+#            - name: Hystrix
+#              args:
+#                name: default
+#                fallbackUri: forward:/fallback
         - id: path_route2
           # \u6307\u5B9A\u57DF\u540D
           uri: http://localhost:8081
           predicates:
             - Path=/war/**
-          filters:
-            # \u7194\u65AD\u914D\u7F6E
-            - name: Hystrix
-              args:
-                name: hystrix1
-                fallbackUri: forward:/fallback
+#          filters:
+#            # \u7194\u65AD\u914D\u7F6E
+#            - name: Hystrix
+#              args:
+#                name: hystrix1
+#                fallbackUri: forward:/fallback
 
   mvc:
     throw-exception-if-no-handler-found: true
