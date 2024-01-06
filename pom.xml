@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-cloud-gateway-sample</name>
+    <name>SpringCloudGateway</name>
     <description>Demo project for Spring Cloud Gateway</description>
 
     <parent>

@@ -2,15 +2,14 @@ package com.achilles;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 
 @SpringBootApplication
-public class GateWayApplication {
+public class SpringCloudGatewayApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(GateWayApplication.class, args);
+		SpringApplication.run(SpringCloudGatewayApplication.class, args);
 
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GateWay SUCCESS ! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
