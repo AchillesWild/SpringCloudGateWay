@@ -1,7 +1,7 @@
 #http://localhost/service-provider/provider/test
 
 server:
-  port: 80
+  port: 90
   servlet:
     context-path: /
 spring:
