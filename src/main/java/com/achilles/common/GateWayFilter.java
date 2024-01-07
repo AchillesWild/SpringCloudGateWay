@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.net.InetSocketAddress;
+
 @Component
 public class GateWayFilter implements GlobalFilter {
 
@@ -23,13 +25,14 @@ public class GateWayFilter implements GlobalFilter {
 
         long startTime = System.currentTimeMillis();
 
-        ServerHttpRequest request =exchange.getRequest();
+        ServerHttpRequest request = exchange.getRequest();
         String path = request.getPath().toString();
+        InetSocketAddress address = exchange.getRequest().getRemoteAddress();
 
         Mono<Void> mono = chain.filter(exchange);
 
         long duration = System.currentTimeMillis() - startTime;
-        log.info("gateway.port : " + serverPort + ", " + path + " --> " + duration+"ms");
+        log.info("gateway.port:{}, remoteAddress:{}, path:{}, time:{}", serverPort, address, path, duration);
 
         return mono;
     }
