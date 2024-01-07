@@ -19,6 +19,7 @@ spring:
           uri: lb://eureka-provider #匹配后提供服务的路由地址
           predicates:
             - Path=/provider/**         # 断言，路径相匹配的进行路由
+#            - Header=token, cloud-gateway	#断言，请求头的key为token，value为cloud-gateway
           metadata:
             connect-timeout: 10
             #单位毫秒
