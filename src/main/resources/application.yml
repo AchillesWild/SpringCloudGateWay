@@ -7,6 +7,8 @@ server:
 spring:
   application:
     name: spring-cloud-gateway-demo
+  profiles:
+    active: dev
   cloud:
     gateway:
       discovery:
@@ -33,8 +35,5 @@ eureka:
   instance:
     prefer-ip-address: true
 
-#logging:
-#  level:
-#    root: info
-
-
+logging:
+  config: classpath:log4j2-spring-dev.xml
